@@ -17,6 +17,8 @@
                 double output = (Double) request.getAttribute("output");
                 String input1 = request.getParameter("input1");
                 String input2 = request.getParameter("input2");
+                double input_double2 = Double.parseDouble(input2);
+
                 String result;
                 if(request.getParameter("add") != null){
                     result = "The Result of " + input1 + " + " + input2 + "is: " + output;
@@ -25,6 +27,9 @@
                 }else if(request.getParameter("mul") != null){
                     result = "The Result of " + input1 + " * " + input2 + "is: " + output;
                 }else {
+                    if(input_double2 == 0){
+                        result = "The Result of " + input1 + " / " + input2 + "is: Error divide by 0";
+                    }else
                     result = "The Result of " + input1 + " / " + input2 + "is: " + output;
                 }
                 out.println(result);       
